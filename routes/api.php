@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/**
+ * @OA\Info(title="My First API", version="0.1")
+ */
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

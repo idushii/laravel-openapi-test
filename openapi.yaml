@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: 'My First API'
+  version: '0.1'
+paths:
+  '/article/{id}':
+    post:
+      tags:
+        - article
+      summary: 'Add a new pet to the store'
+      operationId: showArticle
+      parameters:
+        -
+          name: id
+          in: path
+          description: 'ID of pet to return'
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: 'successful operation'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Article'
+components:
+  schemas:
+    Article:
+      title: 'Article model'
+      description: 'Article model'
+      required:
+        - title
+        - content
+      properties:
+        id:
+          title: ID
+          description: ID
+          type: integer
+          format: int64
+      type: object
