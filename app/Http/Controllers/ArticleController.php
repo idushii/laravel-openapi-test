@@ -8,12 +8,20 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    public function index()
+    /**
+     * @param Request $request
+     * @return array [App\Models\Article]
+     */
+    public function index(Request $request): array
     {
-        return ArticleList::collection(Article::all());
+        return ArticleList::collection(Article::all())->toArray($request);
     }
 
-    public function show($id)
+    /**
+     * @param $id
+     * @return Article
+     */
+    public function show($id): Article
     {
         return Article::find($id);
     }
